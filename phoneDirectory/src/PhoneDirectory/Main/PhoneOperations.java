@@ -2,9 +2,12 @@ package PhoneDirectory.Main;
 import PhoneDirectory.LinkedList.*;
 
 public class PhoneOperations {
-    public void addContact()
-    {
 
+    private LinkedList contactList = new LinkedList<Contact>();
+
+    public void addContact(Contact contactDetails)
+    {
+       contactList.addFirst(contactDetails);
     }
 
     public void deleteContact()
