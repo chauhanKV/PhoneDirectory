@@ -1,5 +1,6 @@
 package PhoneDirectory.LinkedList;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class LinkedList<T> {
@@ -111,12 +112,27 @@ public class LinkedList<T> {
         return size;
     }
 
+//    public void add(int index, T element)
+//    {
+//
+//    }
+
 //    // Need to create generic array -> refer ->  https://www.baeldung.com/java-generic-array
-//    public T[] printList() {
-//        T[] array = new T[size];
+//      public String[] printList() {
+//          String[]
 //
 //
-//        return array;
+//          return array;
+//      }
+
+//    public <T> T[] toArray(Node<T> a) {
+//        if (a.length < size)
+//            // Make a new array of a's runtime type, but my contents:
+//            return (T[]) Arrays.copyOf(elementData, size, a.getClass());
+//        System.arraycopy(elementData, 0, a, 0, size);
+//        if (a.length > size)
+//            a[size] = null;
+//        return a;
 //    }
 
 }
