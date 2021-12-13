@@ -14,16 +14,29 @@ public class PhoneOperations {
 
     public void deleteContact()
     {
-
+        // Remove node in LinkedList
     }
 
     public void editContact()
     {
-
+        // Update node in LinkedList
     }
 
-    public void searchContact()
+    public void searchContact(int workNumber, int personalNumber, String firstName, String lastName)
     {
+        // First work on search contact to get contact info and then delete or edit
+        Contact searchNode = new Contact(personalNumber, workNumber, firstName, lastName);
+        ArrayList<Contact> list = contactList.searchNode(searchNode);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println("####### Your search result is below #######");
+
+            Contact contact = (Contact) list.get(i);
+            System.out.println("Name : " + contact.FirstName() + ' ' + contact.LastName());
+            System.out.println("Personal Number : " + contact.PersonalNumber());
+            System.out.println("Work Number : " + contact.WorkNumber());
+        }
+
 
     }
 

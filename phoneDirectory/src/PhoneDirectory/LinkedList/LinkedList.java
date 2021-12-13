@@ -1,5 +1,6 @@
 package PhoneDirectory.LinkedList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -52,13 +53,13 @@ public class LinkedList<T> {
 
     // Time complexity -> O(1)
     public void removeFirst() {
-        if(isEmpty())
+        if (isEmpty())
             throw new IndexOutOfBoundsException();
 
-      var second = first.next;
-      first.next = null;
-      first = second;
-      size--;
+        var second = first.next;
+        first.next = null;
+        first = second;
+        size--;
     }
 
     // Time Complexity -> O(N)
@@ -92,14 +93,13 @@ public class LinkedList<T> {
 
     //Time Complexity -> O(N)
     public int indexOf(T element) {
-        if(isEmpty()) return -1;
+        if (isEmpty()) return -1;
         var current = first;
         var counter = 0;
         while (current != last) {
             if (current.value == element)
                 return counter;
-            else
-            {
+            else {
                 current = current.next;
                 counter++;
             }
@@ -107,9 +107,24 @@ public class LinkedList<T> {
         return -1;
     }
 
-    private int size()
-    {
+    private int size() {
         return size;
+    }
+
+    public ArrayList<T> searchNode(T node)
+    {
+        ArrayList<T> list = new ArrayList<>();
+        // find all consecutive nodes and pass as array
+        var current = first;
+        while(current != null)
+        {
+            if(current == node)
+            {
+                list.add((T) current);
+            }
+            current = current.next;
+        }
+        return list;
     }
 
 //    public void add(int index, T element)

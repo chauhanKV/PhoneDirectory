@@ -13,4 +13,10 @@ public class Contact{
         this.personalNumber = personalNumber;
         this.workNumber = workNumber;
     }
+
+    public String FirstName() {return firstName;}
+    public String LastName() {return lastName;}
+    public int WorkNumber() {return workNumber;}
+    public int PersonalNumber() {return personalNumber;}
+
 }
