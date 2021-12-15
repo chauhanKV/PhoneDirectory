@@ -24,9 +24,10 @@ public class PhoneOperations {
 
     public void searchContact(int workNumber, int personalNumber, String firstName, String lastName)
     {
+        // CHECK for EFFICIENT WAY
         // First work on search contact to get contact info and then delete or edit
         Contact searchNode = new Contact(personalNumber, workNumber, firstName, lastName);
-        ArrayList<Contact> list = contactList.searchNode(searchNode);
+        ArrayList<Contact> list = search(searchNode);
 
         for (int i = 0; i < list.size(); i++) {
             System.out.println("####### Your search result is below #######");
@@ -38,6 +39,12 @@ public class PhoneOperations {
         }
 
 
+    }
+
+    private ArrayList<Contact> search(Contact searchContact)
+    {
+        ArrayList<Contact> list = contactList.searchNode(searchContact);
+        return list;
     }
 
     public void showContactList() {

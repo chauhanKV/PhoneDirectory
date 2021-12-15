@@ -118,7 +118,7 @@ public class LinkedList<T> {
         var current = first;
         while(current != null)
         {
-            if(current == node)
+            if(current.value.equals(node))
             {
                 list.add((T) current);
             }
