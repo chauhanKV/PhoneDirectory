@@ -9,10 +9,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String args[]) {
-        showMenuOptions();
+        PhoneOperations po = new PhoneOperations();
+        showMenuOptions(po);
     }
 
-    private static void showMenuOptions()
+    private static void showMenuOptions(PhoneOperations po)
     {
         Scanner scan = new Scanner(System.in);
         boolean isStillInLoop = true;
@@ -35,10 +36,10 @@ public class Main {
             switch(menuOption)
             {
                 case "1":
-                    search();
+                    search(po);
                     break;
                 case "2":
-                    addEntry();
+                    addEntry(po);
                     break;
                 case "3":
                     deleteEntry();
@@ -56,10 +57,10 @@ public class Main {
         }
     }
 
-    private static void addEntry()
+    private static void addEntry(PhoneOperations po)
     {
         Scanner scan = new Scanner(System.in);
-        PhoneOperations po = new PhoneOperations();
+
         boolean isInLoop = true;
         while(isInLoop)
         {
@@ -88,14 +89,31 @@ public class Main {
             System.out.println("Do you want to add another contact ? y/n");
             String addAnotherContact = scan.nextLine();
 
-            isInLoop = addAnotherContact != "y" ? false : true;
+            isInLoop = addAnotherContact.toLowerCase() == "y";
 
         }
-        showMenuOptions();
+        showMenuOptions(po);
     }
 
-    private static void search()
-    {}
+    private static void search(PhoneOperations po)
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter First Name to search : ");
+        String firstName = scan.nextLine();
+
+        System.out.println("Enter Last Name to search : ");
+        String lastName = scan.nextLine();
+
+        System.out.println("Enter personal mobile number to search : ");
+        String personalNumber = scan.nextLine();
+
+        System.out.println("Enter work mobile number to search: ");
+        String workNumber = scan.nextLine();
+
+        Contact searchContact = new Contact(Integer.parseInt(personalNumber), Integer.parseInt(workNumber), firstName, lastName);
+
+        po.searchContact(searchContact);
+    }
 
     private static void editEntry()
     {}
